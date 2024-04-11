@@ -22,7 +22,7 @@ const showModal = (evt) => {
             if (selectedText.length > 1000) {
                 alert('Можно выделить не более 1000 символов!');
             } else {
-                modalMistakes.style.display = 'block';
+                modalMistakes.style.display = 'flex';
                 formMessage.focus();
                 selectedTextContainer.textContent = selectedText;
                 selectedTextContainer.style.cssText = 'color:red';
@@ -51,6 +51,9 @@ const sendForm = () => {
 // Закрытие формы
 const closeForm = () => {
     modalMistakes.style.display = 'none';
+    formMessage.style.cssText = 'height:108px';
+    formMessage.value = '';
+    formName.value = '';
 
 }
 
@@ -58,6 +61,9 @@ const closeForm = () => {
 const closeFormOutside = (evt) => {
     if (evt.target === modalMistakes) {
         modalMistakes.style.display = 'none';
+        formMessage.style.cssText = 'height:108px';
+        formMessage.value = '';
+        formName.value = '';
     }
 }
 
