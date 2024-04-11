@@ -85,28 +85,30 @@
             quas quidem quisquam quo ratione recusandae repellendus sapiente similique suscipit vitae.</p>
     </div>
 
-    <div class="modal-mistakes" style="display: none">
-        <div class="modal-mistakes__content">
-            <button class="modal-mistakes__close">&times;</button>
+  <section class="modal-mistakes" style="display: none">
+    <div class="modal-mistakes__content">
+      <h2 style="display: none" class="visually-hidden">Форма для исправления неточностей</h2>
+      <button class="modal-mistakes__close">&times;</button>
 
-            <form class="modal-mistakes__form  form-mistakes" method="post" action="./handler-mistakes.php">
-                <span class="form-mistakes__text">Ошибка в тексте:</span>
-                <div class="form-mistakes__selected-text"></div>
-                <span class="form-mistakes__text">Что исправить?</span>
-                <textarea class="form-mistakes__textarea" name="message" rows="5" cols="30" maxlength="5000"></textarea>
-                <span class="form-mistakes__text">Ваше имя:</span>
-                <input class="form-mistakes__name" type="text" name="name" maxlength="50">
-                <div class="form-mistakes__buttons  form-button-block">
-                    <button class="form-button-block__button  form-button-block__button--submit" type="submit">
-                        Отправить
-                    </button>
-                    <button class="form-button-block__button  form-button-block__button--cancel" type="button">
-                        Отмена
-                    </button>
-                </div>
-            </form>
+      <form class="modal-mistakes__form  form-mistakes" method="post" action="/handler-mistakes.php">
+        <span class="form-mistakes__text">Ошибка в тексте:</span>
+        <input type="hidden" name="source-text" id="source-text"/>
+        <div class="form-mistakes__selected-text"></div>
+        <span class="form-mistakes__text">Что исправить?</span>
+        <textarea class="form-mistakes__textarea" name="message" rows="5" cols="30" maxlength="5000"></textarea>
+        <span class="form-mistakes__text">Ваше имя:</span>
+        <input class="form-mistakes__name" type="text" name="name" maxlength="50">
+        <div class="form-mistakes__buttons  form-button-block">
+          <button class="form-button-block__button  form-button-block__button--submit" type="submit">
+            Отправить
+          </button>
+          <button class="form-button-block__button  form-button-block__button--cancel" type="button">
+            Отмена
+          </button>
         </div>
-    </div>
+      </form>
+  </section>
+
 
 </main>
 <script src="js/app.js"></script>

@@ -7,12 +7,15 @@ const FormSubmitButton = document.querySelector('.form-button-block__button--sub
 const FormCancelButton = document.querySelector('.form-button-block__button--cancel');
 const selectedTextContainer = document.querySelector('.form-mistakes__selected-text');
 
-
 // Показать модалку с формой
 const showModal = (evt) => {
+
     if (evt.ctrlKey && evt.keyCode === 13) {
         evt.preventDefault();
         let selectedText = window.getSelection().toString().trim();
+        let sourceText = document.getElementById('source-text');
+        sourceText.setAttribute('value', selectedText);
+
         if (modalMistakes.style.display === 'none' && selectedText === '') {
             alert('Выделите нужный текст для отправки формы!');
         } else if (modalMistakes.style.display === 'none') {
