@@ -14,7 +14,7 @@ const showModal = (evt) => {
         evt.preventDefault();
         let selectedText = window.getSelection().toString().trim();
         let sourceText = document.getElementById('source-text');
-        sourceText.setAttribute('value', selectedText);
+        (selectedText.length > 0) ? sourceText.setAttribute('value', selectedText) : null;
 
         if (modalMistakes.style.display === 'none' && selectedText === '') {
             alert('Выделите нужный текст для отправки формы!');
@@ -29,13 +29,6 @@ const showModal = (evt) => {
             }
         }
     }
-}
-// Получаем значения
-const getValues = (evt) => {
-    evt.preventDefault();
-    formMessage.value;
-    formName.value;
-    modalMistakes.style.display = 'none';
 }
 
 // Отправка формы
@@ -79,10 +72,6 @@ const onDocumentKeydown = (evt) => {
     closeFormWhenEsc(evt);
 }
 
-const onFormSubmit = (evt) => {
-    getValues(evt);
-}
-
 const onSubmitFormButtonClick = (evt) => {
     evt.preventDefault();
     sendForm();
@@ -114,8 +103,6 @@ const onBlurFormMessage = () => {
 document.addEventListener('keydown', onDocumentKeydown);
 
 FormSubmitButton.addEventListener('click', onSubmitFormButtonClick);
-
-formMistakes.addEventListener('submit', onFormSubmit);
 
 FormCancelButton.addEventListener('click', onCancelFormButtonClick);
 
