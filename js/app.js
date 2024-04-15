@@ -55,24 +55,12 @@ const closeForm = () => {
 
 }
 
-// Закрытие формы кликом вне формы
-const closeFormOutside = (evt) => {
-    if (evt.target === modalMistakes) {
-        closeForm();
-    }
-}
-
-// Закрытие модалки при нажатии esc
-const closeFormWhenEsc = (evt) => {
-    if (evt.key === 'Escape') {
-        closeForm();
-    }
-}
-
 // При нажатии на ctrl+enter - показ формы, при клике на esp - закрытие формы.
 const onDocumentKeydown = (evt) => {
     showModal(evt);
-    closeFormWhenEsc(evt);
+    if (evt.key === 'Escape') {
+        closeForm();
+    }
 }
 
 // При клике на отправить - отправка формы.
@@ -93,7 +81,9 @@ const onCloseModalButtonClick = () => {
 
 // При клике вне модалки - закрытие формы.
 const onWindowClick = (evt) => {
-    closeFormOutside(evt);
+    if (evt.target === modalMistakes) {
+        closeForm();
+    }
 }
 
 // Обработчик события фокусировки на поле имени.
@@ -123,20 +113,12 @@ const onNameInput = () => {
 }
 
 document.addEventListener('keydown', onDocumentKeydown);
-
 formSubmitButton.addEventListener('click', onSubmitFormButtonClick);
-
 formCancelButton.addEventListener('click', onCancelFormButtonClick);
-
 closeModalButton.addEventListener('click', onCloseModalButtonClick);
-
 window.addEventListener('click', onWindowClick);
-
 formMessage.addEventListener('focus', onFocusFormMessage);
-
 formMessage.addEventListener('blur', onBlurFormMessage);
-
 formMessage.addEventListener('input', onMessageInput);
-
 formName.addEventListener('input', onNameInput);
 
