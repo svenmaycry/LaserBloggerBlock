@@ -1,4 +1,9 @@
 .idea
 .vercel
-scss/style.css
-scss/style.css.map
+node_modules/
+package-lock.json
+css/style.css.map
+css/null.css
+css/null.css.map
+css/params.css
+css/params.css.map
